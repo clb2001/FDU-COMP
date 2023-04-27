@@ -3,6 +3,9 @@
 #include <vector>
 using namespace std;
 
+/// @brief clb
+/// @return 19300740005
+
 int main(){
     int N;
     cin >> N;
