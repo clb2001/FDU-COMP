@@ -1,0 +1,212 @@
+{
+"frame": 2,
+"frame_time": 0.033333,
+"joint":
+{"type": "ROOT",
+"name": "Hips",
+"offset": [0, 0, 0],
+"channels": ["Xposition", "Yposition", "Zposition", "Zrotation", "Xrotation", "Yrotation"],
+"motion": [[8.03, 35.01, 88.36, -3.41, 14.78, -164.35],
+[7.81, 35.1, 86.47, -3.78, 12.94, -166.97]
+],
+"children": [
+{"type": "JOINT",
+"name": "Chest",
+"offset": [0, 5.21, 0],
+"channels": ["Zrotation", "Xrotation", "Yrotation"],
+"motion": [[13.09, 40.3, -24.6],
+[12.64, 42.57, -22.34]
+],
+"children": [
+{"type": "JOINT",
+"name": "Neck",
+"offset": [0, 18.65, 0],
+"channels": ["Zrotation", "Xrotation", "Yrotation"],
+"motion": [[7.88, 43.8, 0],
+[7.67, 43.61, 0]
+],
+"children": [
+{"type": "JOINT",
+"name": "Head",
+"offset": [0, 5.45, 0],
+"channels": ["Zrotation", "Xrotation", "Yrotation"],
+"motion": [[-3.61, -41.45, 5.82],
+[-4.23, -41.41, 4.89]
+],
+"children": [
+{"type": "End",
+"name": "Head_End",
+"offset": [0, 3.87, 0],
+"channels": [],
+"motion": [[],
+[]
+],
+"children": [
+]
+}]
+}]
+},{"type": "JOINT",
+"name": "LeftCollar",
+"offset": [1.12, 16.23, 1.87],
+"channels": ["Zrotation", "Xrotation", "Yrotation"],
+"motion": [[10.08, 0, 10.21],
+[19.1, 0, 4.16]
+],
+"children": [
+{"type": "JOINT",
+"name": "LeftUpArm",
+"offset": [5.54, 0, 0],
+"channels": ["Zrotation", "Xrotation", "Yrotation"],
+"motion": [[97.95, -23.53, -2.14],
+[93.12, -9.69, -9.43]
+],
+"children": [
+{"type": "JOINT",
+"name": "LeftLowArm",
+"offset": [0, -11.96, 0],
+"channels": ["Zrotation", "Xrotation", "Yrotation"],
+"motion": [[-101.86, -80.77, -98.91],
+[132.67, -81.86, 136.8]
+],
+"children": [
+{"type": "JOINT",
+"name": "LeftHand",
+"offset": [0, -9.93, 0],
+"channels": ["Zrotation", "Xrotation", "Yrotation"],
+"motion": [[0.69, 0.03, 0],
+[0.7, 0.37, 0]
+],
+"children": [
+{"type": "End",
+"name": "LeftHand_End",
+"offset": [0, -7, 0],
+"channels": [],
+"motion": [[],
+[]
+],
+"children": [
+]
+}]
+}]
+}]
+}]
+},{"type": "JOINT",
+"name": "RightCollar",
+"offset": [-1.12, 16.23, 1.87],
+"channels": ["Zrotation", "Xrotation", "Yrotation"],
+"motion": [[-14.04, 0, -10.5],
+[-8.62, 0, -21.82]
+],
+"children": [
+{"type": "JOINT",
+"name": "RightUpArm",
+"offset": [-6.07, 0, 0],
+"channels": ["Zrotation", "Xrotation", "Yrotation"],
+"motion": [[-85.52, -13.72, -102.93],
+[-87.31, -27.57, -100.09]
+],
+"children": [
+{"type": "JOINT",
+"name": "RightLowArm",
+"offset": [0, -11.82, 0],
+"channels": ["Zrotation", "Xrotation", "Yrotation"],
+"motion": [[61.91, -61.18, 65.18],
+[56.17, -61.56, 58.72]
+],
+"children": [
+{"type": "JOINT",
+"name": "RightHand",
+"offset": [0, -10.65, 0],
+"channels": ["Zrotation", "Xrotation", "Yrotation"],
+"motion": [[-1.57, 0.69, 0.02],
+[-1.63, 0.95, 0.03]
+],
+"children": [
+{"type": "End",
+"name": "RightHand_End",
+"offset": [0, -7, 0],
+"channels": [],
+"motion": [[],
+[]
+],
+"children": [
+]
+}]
+}]
+}]
+}]
+}]
+},{"type": "JOINT",
+"name": "LeftUpLeg",
+"offset": [3.91, 0, 0],
+"channels": ["Zrotation", "Xrotation", "Yrotation"],
+"motion": [[15, 22.78, -5.92],
+[13.16, 15.44, -3.56]
+],
+"children": [
+{"type": "JOINT",
+"name": "LeftLowLeg",
+"offset": [0, -18.34, 0],
+"channels": ["Zrotation", "Xrotation", "Yrotation"],
+"motion": [[14.93, 49.99, 6.6],
+[7.97, 59.29, 4.97]
+],
+"children": [
+{"type": "JOINT",
+"name": "LeftFoot",
+"offset": [0, -17.37, 0],
+"channels": ["Zrotation", "Xrotation", "Yrotation"],
+"motion": [[0, -1.14, 0],
+[0, 1.64, 0]
+],
+"children": [
+{"type": "End",
+"name": "LeftFoot_End",
+"offset": [0, -3.46, 0],
+"channels": [],
+"motion": [[],
+[]
+],
+"children": [
+]
+}]
+}]
+}]
+},{"type": "JOINT",
+"name": "RightUpLeg",
+"offset": [-3.91, 0, 0],
+"channels": ["Zrotation", "Xrotation", "Yrotation"],
+"motion": [[-16.58, -10.51, -3.11],
+[-17.18, -10.02, -3.08]
+],
+"children": [
+{"type": "JOINT",
+"name": "RightLowLeg",
+"offset": [0, -17.63, 0],
+"channels": ["Zrotation", "Xrotation", "Yrotation"],
+"motion": [[15.38, 52.66, -21.8],
+[13.56, 53.38, -18.07]
+],
+"children": [
+{"type": "JOINT",
+"name": "RightFoot",
+"offset": [0, -17.14, 0],
+"channels": ["Zrotation", "Xrotation", "Yrotation"],
+"motion": [[0, -23.95, 0],
+[0, -25.93, 6.95334e-310]
+],
+"children": [
+{"type": "End",
+"name": "RightFoot_End",
+"offset": [0, -3.75, 0],
+"channels": [],
+"motion": [[],
+[]
+],
+"children": [
+]
+}]
+}]
+}]
+}]
+}}
