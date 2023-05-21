@@ -61,12 +61,15 @@
 		style="margin-left: 16px; width: 1890px">
 		<tr>
 			<th style="width: 100px">音乐编号</th>
-			<th style="width: 100px">音乐图片</th>
+			<th style="width: 100px">专辑图片</th>
 			<th style="width: 200px">音乐名称</th>
 			<th style="width: 200px">音乐类型</th>
-			<th style="width: 200px">音乐作者</th>
-			<th style="width: 300px">音乐出版社</th>
-			<th style="width: 200px">音乐价格</th>
+			<th style="width: 200px">演唱</th>
+			<th style="width: 200px">作词</th>
+			<th style="width: 200px">作曲</th>
+			<th style="width: 200px">所属专辑</th>
+			<th style="width: 300px">唱片公司</th>
+			<th style="width: 200px">专辑价格</th>
 			<th style="width: 200px">销量</th>
 			<th style="width: 200px">操作</th>
 		</tr>
@@ -76,12 +79,15 @@
 				<td><img style="width: 80px; height: 100px"
 					src="${pageContext.request.contextPath}/img/${s.path}/${s.filename}" />
 				</td>
-				<td>《${s.music_name}》</td>
+				<td>${s.music_name}</td>
 				<td>${s.category.category_name}</td>
-				<td>${s.music_author}</td>
-				<td>${s.music_press}</td>
+				<td>${s.music_singer}</td>
+				<td>${s.music_lyricist}</td>
+				<td>${s.music_composer}</td>
+				<td>${s.record}</td>
+				<td>${s.record_company}</td>
 				<td><span style="color: rgb(198, 46, 45); font-weight: bold">￥${s.music_price}</span></td>
-				<td>${s.music_xiaonumber}</td>
+				<td style="color: red"><strong>${s.music_heat}</strong></td>
 				<td><a
 					href="<%=basePath%>/client/ClientServlet?op=particulars&music_id=${s.music_id}">详情</a></td>
 			</tr>

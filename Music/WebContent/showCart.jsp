@@ -29,13 +29,16 @@
 		<table class="table table-bordered table-hover"
 			style="margin-left: 16px; width: 1890px">
 			<tr>
-				<th style="width: 100px">序号</th>
-				<th style="width: 100px">音乐图片</th>
+				<th style="width: 100px">音乐编号</th>
+				<th style="width: 100px">专辑图片</th>
 				<th style="width: 200px">音乐名称</th>
 				<th style="width: 200px">音乐类型</th>
-				<th style="width: 200px">音乐作者</th>
-				<th style="width: 300px">音乐出版社</th>
-				<th style="width: 200px">音乐单价</th>
+				<th style="width: 200px">演唱</th>
+				<th style="width: 200px">作词</th>
+				<th style="width: 200px">作曲</th>
+				<th style="width: 200px">所属专辑</th>
+				<th style="width: 300px">唱片公司</th>
+				<th style="width: 200px">专辑价格</th>
 				<th style="width: 200px">购买数量</th>
 				<th style="width: 200px">小计</th>
 				<th style="width: 200px">操作</th>
@@ -46,10 +49,13 @@
 					<td><img style="width: 80px; height: 100px"
 						src="${pageContext.request.contextPath}/img/${c.value.music.path}/${c.value.music.filename}" />
 					</td>
-					<td>《${c.value.music.music_name}》</td>
+					<td>${c.value.music.music_name}</td>
 					<td>${c.value.music.category.category_name}</td>
-					<td>${c.value.music.music_author}</td>
-					<td>${c.value.music.music_press}</td>
+					<td>${c.value.music.music_singer}</td>
+					<td>${c.value.music.music_lyricist}</td>
+					<td>${c.value.music.music_composer}</td>
+					<td>${c.value.music.record}</td>
+					<td>${c.value.music.record_music}</td>
 					<td><span style="color: rgb(198, 46, 45); font-weight: bold">￥${c.value.music.music_price}</span></td>
 
 					<td><input type="email" class="form-control" id="quantity"
@@ -71,7 +77,6 @@
 						onclick="window.location='<%=basePath%>/order/OrderServlet?op=generateOrder'">
 						<span style="font-size: 16px">结算</span>
 					</button></td>
-
 			</tr>
 		</table>
 
@@ -80,22 +85,18 @@
 		function changeNum(inputObj,oldNum,music_id){
 			var sure = window.confirm("确定要修改数量吗?");
 			if(sure){
-				//修改新数量
 				var num = inputObj.value;
-					//验证：用户输入的必须是自然数。 字母\1.1\-1排除
 				if(!/^[1-9][0-9]*$/.test(num)){
 					alert("请输入正确的数量");
 					return;
 				}
-				//提交给服务器修改该项的数量
-				window.location.href="${pageContext.request.contextPath}/client/ClientServlet?op=changeNum&num="+num+"&music_id="+music_id;
+				window.location.href="${pageContext.request.contextPath}/client/ClientServlet?op=changeNum&num=" + num + "&music_id=" + music_id;
 			}else{
-				//显示原来的值
 				inputObj.value = oldNum;
 			}
 		}
 		function delOneItem(music_id) {
-			var sure = window.confirm("确定删除改选项吗？");
+			var sure = window.confirm("确定删除此专辑吗？");
 			if (sure) {
 				window.location.href = "${pageContext.request.contextPath}/client/ClientServlet?op=delItem&music_id="
 						+ music_id;
@@ -103,6 +104,5 @@
 			}
 		}
 	</script>
-
 </body>
 </html>

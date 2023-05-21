@@ -21,46 +21,32 @@
     window.onload = function () {
         document.getElementById("bt1").onclick = function () {
             var music_id = "${music.music_id}";
-            //01.获取ajax引擎,获取ajax的XMLHttpRequest核心对象
             var xhr = getXhr();
-            //02.注册事件,监测readystate值的变化
             xhr.onreadystatechange = function () {
-                //什么时候执行,服务器响应完成之后
                 if (xhr.readyState == 4) {
                     if (xhr.status == 200) {
 
                     }
                 }
             }
-            //03.发送请求
-            xhr.open("get",
-                "/client/ClientServlet?op=addCart&music_id="
-                + music_id);
-            //04.发送请求正文
+            xhr.open("get", "/client/ClientServlet?op=addCart&music_id=" + music_id);
             xhr.send(null);
             alert("添加成功!");
         };
 
         document.getElementById("a1").onclick = function () {
-            alert("添加成功");
             var music_id = "${music.music_id}";
-            //01.获取ajax引擎,获取ajax的XMLHttpRequest核心对象
             var xhr = getXhr();
-            //02.注册事件,监测readystate值的变化
             xhr.onreadystatechange = function () {
-                //什么时候执行,服务器响应完成之后
                 if (xhr.readyState == 4) {
                     if (xhr.status == 200) {
 
                     }
                 }
             }
-            //03.发送请求
-            xhr.open("get",
-                "/client/ClientServlet?op=addFavorite&music_id="
-                + music_id);
-            //04.发送请求正文
+            xhr.open("get", "/client/ClientServlet?op=addFavorite&music_id=" + music_id);
             xhr.send(null);
+            alert("添加成功");
         }
 
     }
@@ -69,7 +55,7 @@
 <div
         style="background-color: rgb(244, 245, 244); margin-top: 50px; margin-left: 380px; width: 1150px; height: 50px">
     <div style="padding-top: 9px">
-        <span style="font-size: 25px; margin-left: 20px;">《${music.music_name}》</span><a
+        <span style="font-size: 25px; margin-left: 20px;">${music.music_name}</span><a
             href="#" onClick="javascript:history.go(-1);"><span
             class="label label-default" style="float: right;">返回</span></a>
     </div>
@@ -87,16 +73,18 @@
         <!-- 音乐名称 -->
         <div style="margin-top: 25px">
 				<span
-                        style="font: 700 16px Arial, 'microsoft yahei'; color: #666; padding-top: 10px; line-height: 28px; margin-bottom: 5px; margin-left: 10px">《${music.music_name}》</span>
+                        style="font: 700 16px Arial, 'microsoft yahei'; color: #666; padding-top: 10px; line-height: 28px; margin-bottom: 5px; margin-left: 10px">${music.music_name}</span>
         </div>
-        <!-- 作者出版社 -->
+
         <div style="margin-left: 18px; margin-top: 15px">
-            <span style="font-size: 20px; color: #1890FF;">${music.music_press}</span>
-            &nbsp;<strong>编</strong>&nbsp;&nbsp;&nbsp; <span
-                style="font-size: 20px; color: #1890FF;">${music.music_author}</span>
-            &nbsp;<strong>著</strong>
+            <span style="font-size: 20px; color: #1890FF;">${music.music_lyricist}</span>
+            &nbsp;<strong>作词</strong>&nbsp;&nbsp;&nbsp; <span
+                style="font-size: 20px; color: #1890FF;">${music.music_composer}</span>
+            &nbsp;<strong>作曲</strong>    <span
+                style="font-size: 20px; color: #1890FF;">${music.music_singer}</span>
+            &nbsp;<strong>演唱</strong>
         </div>
-        <!-- 价格&销量 -->
+
         <div
                 style="margin-top: 20px; margin-left: 18px; width: 620px; height: 270px; background-color: rgb(247, 245, 241)">
             <img alt="bg——img" src="<%=basePath%>/img/seckilling.png">
@@ -106,10 +94,10 @@
                 <textarea disabled="disabled" class="form-control" rows="3"
                           id="music_description" name="music_description" placeholder="${music.music_description}"
                           style="width: 570px; margin-top: 7px; margin-bottom: 7px"></textarea>
-                <span style="color: rgb(153, 153, 153)">音乐单价:</span><span
+                <span style="color: rgb(153, 153, 153)">专辑单价:</span><span
                     style="font-size: 16px; font-weight: 700; color: #C62E2D">&nbsp;&nbsp;￥${music.music_price}</span><br>
-                <span style="color: rgb(153, 153, 153)">音乐库存:</span>&nbsp;&nbsp;&nbsp;${music.music_kunumber}&nbsp;本<br>
-                <span style="color: rgb(153, 153, 153)">音乐销量:</span>&nbsp;&nbsp;&nbsp;${music.music_xiaonumber}&nbsp;本<br>
+                <span style="color: rgb(153, 153, 153)">专辑库存:</span>&nbsp;&nbsp;&nbsp;${music.inventory}&nbsp;张<br>
+                <span style="color: rgb(153, 153, 153)">销量:</span>&nbsp;&nbsp;&nbsp;${music.heat}&nbsp;张<br>
             </div>
         </div>
         <!-- 收藏 -->
@@ -168,24 +156,16 @@
     }
 
     function buyNow() {
-        //立即购买
         var music_id = "${music.music_id}";
-        //01.获取ajax引擎,获取ajax的XMLHttpRequest核心对象
         var xhr = getXhr();
-        //02.注册事件,监测readystate值的变化
         xhr.onreadystatechange = function () {
-            //什么时候执行,服务器响应完成之后
             if (xhr.readyState == 4) {
                 if (xhr.status == 200) {
 
                 }
             }
         }
-        //03.发送请求
-        xhr.open("get",
-            "/client/ClientServlet?op=buyNow&music_id="
-            + music_id);
-        //04.发送请求正文
+        xhr.open("get", "/client/ClientServlet?op=buyNow&music_id=" + music_id);
         xhr.send(null);
     }
 </script>

@@ -63,7 +63,6 @@
 				</tr>
 			</c:forEach>
 			<tr>
-
 				<td colspan="10" style="padding-left: 1450px"><strong>总数量：<span
 						style="color: rgb(198, 46, 45); font-weight: bold; font-size: 20px">${sessionScope.cart.totalQuantity}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;合计：
 				</strong><span
