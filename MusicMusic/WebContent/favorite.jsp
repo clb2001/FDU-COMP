@@ -63,7 +63,7 @@
 					<td>${c.value.music.music_lyricist}</td>
 					<td>${c.value.music.music_composer}</td>
 					<td>${c.value.music.record}</td>
-					<td>${c.value.music.record_music}</td>
+					<td>${c.value.music.record_company}</td>
 					<td><span style="color: rgb(198, 46, 45); font-weight: bold">￥${f.music.music_price}</span></td>
 					<td><a href="javascript:delOne('${f.music.music_id}')">删除</a></td>
 				</tr>

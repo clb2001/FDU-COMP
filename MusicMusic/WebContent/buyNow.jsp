@@ -51,7 +51,7 @@
 					<td>${c.value.music.music_lyricist}</td>
 					<td>${c.value.music.music_composer}</td>
 					<td>${c.value.music.record}</td>
-					<td>${c.value.music.record_music}</td>
+					<td>${c.value.music.record_company}</td>
 					<td><span style="color: rgb(198, 46, 45); font-weight: bold">￥${c.value.music.music_price}</span></td>
 
 					<td><input type="email" class="form-control" id="quantity"
