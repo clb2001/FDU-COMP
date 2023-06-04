@@ -40,7 +40,10 @@ public class GBNHost extends MyHost {
 
                 // 模拟发送分组
                 byte[] data = sendData.getBytes();
+
+//                System.out.println("destAddress: " + destAddress);
                 DatagramPacket datagramPacket = new DatagramPacket(data, data.length, destAddress, destPort);
+                System.out.println("datagramPacket: " + datagramPacket);
                 sendSocket.send(datagramPacket);
 
                 System.out.println(hostName + "发送到" + destPort + "端口， Seq = " + nextSeq);
