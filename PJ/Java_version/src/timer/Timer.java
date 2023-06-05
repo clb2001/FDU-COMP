@@ -20,15 +20,16 @@ public class Timer extends Thread {
     @Override
     public void run() {
         while (true) {
-            int time = timeModel.getTime();
+            int time = this.timeModel.getTime();
+            System.out.println("Time: " + time);
             if (time > 0) {
                 try {
                     Thread.sleep(time * 1000);
 
                     System.out.println("\n");
-                    if (myHost != null) {
-                        System.out.println(myHost.getHostName() + "等待ACK超时");
-                        myHost.timeOut();
+                    if (this.myHost != null) {
+                        System.out.println(this.myHost.getHostName() + "等待ACK超时");
+                        this.myHost.timeOut();
                     }
 //                    if (gbnHost != null) {
 //                        System.out.println("GBN接收方等待ACK超时");
@@ -38,7 +39,7 @@ public class Timer extends Thread {
 //                        srHost.timeOut(srHost.getDestPort());
 //                    }
 
-                    timeModel.setTime(0);
+                    this.timeModel.setTime(0);
 
                 } catch (Exception e) {
                 }

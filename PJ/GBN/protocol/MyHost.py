@@ -37,7 +37,7 @@ class MyHost(ABC):
         return self.hostname
 
     def sendACK(self, seq, toAddr, toPort):
-        response = self.hostname + " response ACK: " + str(seq)
+        response = self.hostname + " responses ACK: " + str(seq)
         response_data = response.encode()
         addr = (toAddr, toPort)
         packet = response_data, addr

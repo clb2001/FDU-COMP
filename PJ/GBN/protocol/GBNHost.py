@@ -9,13 +9,13 @@ class GBNHost(MyHost):
     def __init__(self, RECEIVE_PORT, WINDOW_SIZE, DATA_NUMBER, TIMEOUT, name):
         super().__init__(RECEIVE_PORT, WINDOW_SIZE, DATA_NUMBER, TIMEOUT, name)
         self._timeModel = TimeModel()
-        self._timer = Timer(MyHost, self._timeModel)
+        self._timer = Timer(self, self._timeModel)
 
     def sendData(self):
         self._timeModel.setTime(0)
         self._timer.start()
         while True:
-            while self._next_seq < self._base + self.WINDOW_SIZE and self._next_seq < self.DATA_NUMBER:
+            while self._next_seq < self._base + self.WINDOW_SIZE and self._next_seq <= self.DATA_NUMBER:
                 if self._next_seq % 5 == 0:
                     print(self.hostname, "假装丢失Seq = ", self._next_seq)
                     self._next_seq += 1
@@ -36,8 +36,8 @@ class GBNHost(MyHost):
                     print("延迟被中断: ", e)
                 buffer_size = 4096
 
-                bytes, address = self._receive_socket.recvfrom(buffer_size)
-                print("self._base", self._receive_socket)
+                bytes, address = self._send_socket.recvfrom(buffer_size)
+                print("self._base", self._send_socket)
                 from_server = bytes.decode('utf-8')
                 ack_index = from_server.index("ACK: ") + 5
                 ack_str = from_server[ack_index:].strip()
@@ -66,7 +66,7 @@ class GBNHost(MyHost):
 
     def receiveData(self):
         while True:
-            self._receive_socket.settimeout(1)
+            self._receive_socket.settimeout(5)
             buffer_size = 4096
             try:
                 received_data, address = self._receive_socket.recvfrom(buffer_size)
