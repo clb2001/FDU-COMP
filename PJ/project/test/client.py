@@ -1,13 +1,13 @@
 import socket
 from ref import crc16, packet
-from UDT import UDT
+from udt import udt
 import os
 import time
 import threading
 
 
 def receive(sock, filename, IP_PORT):
-    UDTER = UDT.UDT(0.005, 0.005)
+    UDTER = udt.UDT(0.005, 0.005)
     file = open(filename, "wb")
     log_filename = IP_PORT[0] + "_" + str(IP_PORT[1]) + "_" + "log.txt"
     log_file = open("../log/client/" + log_filename, "a+")
@@ -21,18 +21,18 @@ def receive(sock, filename, IP_PORT):
             break
         seq_num, crc_num, data = packet.extract(pdu)
         
-        print('Got PDU', seq_num)
+        print('Got frame', seq_num)
 
         crc_expected = crc16.crc16xmodem(data)
         if crc_expected != crc_num:
-            log_file.write("%s: Receive PDU = %d, STATUS = DataErr, FRAME_EXPECTED = %d from %s\n" \
+            log_file.write("%s: Receive frame = %d, STATUS = DataErr, FRAME_EXPECTED = %d from %s\n" \
                            %(time.ctime(), seq_num, frame_expected, str(addr)))
             print("data with error")
             continue
 
         if seq_num == frame_expected:
             print('Got expected packet')
-            log_file.write("%s: Receive PDU = %d,STATUS = OK, FRAME_EXPECTED = %d from %s\n" \
+            log_file.write("%s: Receive frame = %d,STATUS = OK, FRAME_EXPECTED = %d from %s\n" \
                            %(time.ctime(), seq_num, frame_expected, str(addr)))
             print('Sending ACK', frame_expected)
             UDTER.sendack(frame_expected, sock, addr)
@@ -41,7 +41,7 @@ def receive(sock, filename, IP_PORT):
         
         else:
             print('Got unexpected packet')
-            log_file.write("%s: Receive PDU = %d, STATUS = NoErr, FRAME_EXPECTED = %d from %s\n" \
+            log_file.write("%s: Receive frame = %d, STATUS = NoErr, FRAME_EXPECTED = %d from %s\n" \
                            %(time.ctime(), seq_num, frame_expected, str(addr)))
             print('Sending ACK', frame_expected - 1)
             UDTER.sendack(frame_expected - 1, sock, addr)

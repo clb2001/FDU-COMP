@@ -1,5 +1,5 @@
 import socket
-from UDT import UDT
+from udt import udt
 import _thread
 from timer import timer
 import os
@@ -13,7 +13,7 @@ packets_num = 0
 send_timer = timer.timer(interval)
 log_filename = ""
 mutex = _thread.allocate_lock()
-UDTER = UDT.UDT(0.005, 0.005)
+UDTER = udt.UDT(0.005, 0.005)
 
 
 def send(sock, filename, IP_PORT, RECEIVER_ADDR):
@@ -61,9 +61,9 @@ def send(sock, filename, IP_PORT, RECEIVER_ADDR):
                 break
             print('Sending packet', next_frame_to_send)
             if overtime_flag == 0:
-                log_file.write("%s: Send PDU = %d, STATUS = New, ACKed = %d to %s\n" % (time.ctime(), next_frame_to_send, expected_ack, str(RECEIVER_ADDR)))
+                log_file.write("%s: Send frame = %d, STATUS = New, ACKed = %d to %s\n" % (time.ctime(), next_frame_to_send, expected_ack, str(RECEIVER_ADDR)))
             elif overtime_flag == 1:
-                log_file.write("%s: Send PDU = %d, STATUS = TO, ACKed = %d to %s\n" % (time.ctime(), next_frame_to_send, expected_ack, str(RECEIVER_ADDR)))
+                log_file.write("%s: Send frame = %d, STATUS = TO, ACKed = %d to %s\n" % (time.ctime(), next_frame_to_send, expected_ack, str(RECEIVER_ADDR)))
             send_timer.satrt(next_frame_to_send)
             UDTER.send(packets[next_frame_to_send], sock, RECEIVER_ADDR)
             next_frame_to_send += 1
