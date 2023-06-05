@@ -63,7 +63,7 @@ class GBNSender:
                 data, address = self.sender_socket.recvfrom(BUFFER_SIZE)
 
                 ack_seq, expect_seq = self.analyse_pkt(data)
-                print('Sender receive ACK:ack_seq', ack_seq, "expect_seq",expect_seq)
+                print('Sender receive ACK: ack_seq', ack_seq, "expect_seq",expect_seq)
                 print("SEND WINDOW: ",ack_seq)
                 if (self.send_base == (ack_seq + 1) % 256):
                     # 收到重复确认, 此处应当立即重发
@@ -161,9 +161,9 @@ class GBNReceiver:
         checksum = pkt[2]
         data = pkt[3:]
         if flag == 0:
-            print("seq_num: ",seq_num, "not end ")
+            print("seq_num:",seq_num, "not end ")
         else:
-            print("seq_num: ", seq_num, " end ")
+            print("seq_num:", seq_num, "end ")
         return seq_num, flag, checksum, data
 
     def make_pkt(self, ackSeq, expectSeq):
