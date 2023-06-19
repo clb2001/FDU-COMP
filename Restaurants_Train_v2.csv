@@ -1,4 +1,4 @@
-id,content,AspectTerm,polarity,from,to
+id,text,term,polarity,from,to
 3121,But the staff was so horrible to us.,staff,negative,8,13
 2777,"To be completely fair, the only redeeming factor was the food, which was above average, but couldn't make up for all the other deficiencies of Teodora.",food,positive,57,61
 1634,"The food is uniformly exceptional, with a very capable kitchen which will proudly whip up whatever you feel like eating, whether it's on the menu or not.",food,positive,4,8
